@@ -11,7 +11,26 @@ describe('movie routes', () => {
   it('/movies should return a list of movies', async () => {
     const resp = await request(app).get('/movies');
     expect(resp.status).toEqual(200);
-    expect(resp.body.length).toEqual(3);
+    expect(resp.body).toEqual([
+      {
+        id: '1',
+        name: 'Blade Runner',
+        director: 'Ridley Scott',
+        genre: 'Science Fiction',
+      },
+      {
+        id: '2',
+        name: 'Fight Club',
+        director: 'David Fincher',
+        genre: 'psychological action drama',
+      },
+      {
+        id: '3',
+        name: 'Remember the Titans',
+        director: 'Boaz Yakin',
+        genre: 'Sports',
+      },
+    ]);
   });
 
   afterAll(() => {
