@@ -3,13 +3,17 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-describe('backend-express-template routes', () => {
+describe('movie routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('example test - delete me!', () => {
-    expect(1).toEqual(1);
+
+  it('/movies should return a list of movies', async () => {
+    const resp = await request(app).get('/movies');
+    expect(resp.status).toEqual(200);
+    expect(resp.body.length).toEqual(3);
   });
+
   afterAll(() => {
     pool.end();
   });
