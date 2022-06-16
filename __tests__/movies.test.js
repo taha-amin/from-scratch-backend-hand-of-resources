@@ -57,6 +57,14 @@ describe('movie routes', () => {
     expect(resp.body.id).not.toBeUndefined();
   });
 
+  it('PUT /movies/:id should update movie', async () => {
+    const resp = await request(app)
+      .put('/movies/2')
+      .send({ genre: 'dark comedy action drama' });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.genre).toEqual('dark comedy action drama');
+  });
+
   afterAll(() => {
     pool.end();
   });
