@@ -44,6 +44,19 @@ describe('movie routes', () => {
     });
   });
 
+  it('POST /movies should create a new movie', async () => {
+    const resp = await request(app).post('/movies').send({
+      name: 'Forest Gump',
+      director: 'Robert Zemeckis',
+      genre: 'Comedy Drama',
+    });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.name).toEqual('Forest Gump');
+    expect(resp.body.director).toEqual('Robert Zemeckis');
+    expect(resp.body.genre).toEqual('Comedy Drama');
+    expect(resp.body.id).not.toBeUndefined();
+  });
+
   afterAll(() => {
     pool.end();
   });
