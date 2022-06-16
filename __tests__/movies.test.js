@@ -36,7 +36,12 @@ describe('movie routes', () => {
   it('/movies/:id should return the movie detail', async () => {
     const resp = await request(app).get('/movies/1');
     expect(resp.status).toEqual(200);
-    expect(resp.body.length).toEqual(1);
+    expect(resp.body).toEqual({
+      id: '1',
+      name: 'Blade Runner',
+      director: 'Ridley Scott',
+      genre: 'Science Fiction',
+    });
   });
 
   afterAll(() => {
