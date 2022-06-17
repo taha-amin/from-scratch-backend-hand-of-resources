@@ -45,6 +45,15 @@ describe('movie routes', () => {
     expect(resp.body.weapon).toEqual('grappling hook');
   });
 
+  it('DELETE /turtles/:id should delete a turtle', async () => {
+    const resp = await request(app).delete('/turtles/1');
+    expect(resp.status).toEqual(200);
+    expect(resp.body.id).toEqual('1');
+
+    const { body } = await request(app).get('/turtles/');
+    expect(body.length).toBeLessThan(4);
+  });
+
   afterAll(() => {
     pool.end();
   });
