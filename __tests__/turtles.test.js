@@ -8,12 +8,12 @@ describe('movie routes', () => {
     return setup(pool);
   });
 
-  it('/turtles should return a list of turtles', async () => {
+  it.skip('/turtles should return a list of turtles', async () => {
     const resp = await request(app).get('/turtles');
     expect(resp.status).toEqual(200);
   });
 
-  it('/turtles/:id should return the turtle detail', async () => {
+  it.skip('/turtles/:id should return the turtle detail', async () => {
     const resp = await request(app).get('/turtles/1');
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual({
@@ -24,7 +24,7 @@ describe('movie routes', () => {
     });
   });
 
-  it('POST /turtles should create a new turtle', async () => {
+  it.skip('POST /turtles should create a new turtle', async () => {
     const resp = await request(app).post('/turtles').send({
       name: 'Venus de Milo',
       color: 'black',
@@ -37,7 +37,7 @@ describe('movie routes', () => {
     expect(resp.body.id).not.toBeUndefined();
   });
 
-  it('PUT /turtles/:id should update turtle', async () => {
+  it.skip('PUT /turtles/:id should update turtle', async () => {
     const resp = await request(app)
       .put('/turtles/3')
       .send({ weapon: 'grappling hook' });
@@ -45,7 +45,7 @@ describe('movie routes', () => {
     expect(resp.body.weapon).toEqual('grappling hook');
   });
 
-  it('DELETE /turtles/:id should delete a turtle', async () => {
+  it.skip('DELETE /turtles/:id should delete a turtle', async () => {
     const resp = await request(app).delete('/turtles/1');
     expect(resp.status).toEqual(200);
     expect(resp.body.id).toEqual('1');

@@ -57,11 +57,12 @@ INSERT INTO turtles (name, color, weapon) VALUES
 
 CREATE TABLE cities (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR NOT NULL,
     population BIGINT NOT NULL,
     motto VARCHAR NOT NULL
 );
 
-INSERT INTO cities (population, motto) VALUES
+INSERT INTO cities (name, population, motto) VALUES
 ('Portland', 650380, 'keep portland weird'),
 ('New York', 8000000, 'excelsior'),
 ('Seattle', 741251, 'city of goodwill');
