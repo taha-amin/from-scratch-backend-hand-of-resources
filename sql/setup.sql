@@ -13,7 +13,7 @@ CREATE TABLE movies (
 INSERT INTO movies (name, director, genre) VALUES
 ('Blade Runner', 'Ridley Scott', 'Science Fiction'),
 ('Fight Club', 'David Fincher', 'psychological action drama'),
-('Remember the Titans', 'Boaz Yakin', 'Sports')
+('Remember the Titans', 'Boaz Yakin', 'Sports');
 
 CREATE TABLE athletes (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,

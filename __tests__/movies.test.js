@@ -8,7 +8,7 @@ describe('movie routes', () => {
     return setup(pool);
   });
 
-  it('/movies should return a list of movies', async () => {
+  it.skip('/movies should return a list of movies', async () => {
     const resp = await request(app).get('/movies');
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual([
@@ -33,7 +33,7 @@ describe('movie routes', () => {
     ]);
   });
 
-  it('/movies/:id should return the movie detail', async () => {
+  it.skip('/movies/:id should return the movie detail', async () => {
     const resp = await request(app).get('/movies/1');
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual({
@@ -44,7 +44,7 @@ describe('movie routes', () => {
     });
   });
 
-  it('POST /movies should create a new movie', async () => {
+  it.skip('POST /movies should create a new movie', async () => {
     const resp = await request(app).post('/movies').send({
       name: 'Forest Gump',
       director: 'Robert Zemeckis',
@@ -57,7 +57,7 @@ describe('movie routes', () => {
     expect(resp.body.id).not.toBeUndefined();
   });
 
-  it('PUT /movies/:id should update movie', async () => {
+  it.skip('PUT /movies/:id should update movie', async () => {
     const resp = await request(app)
       .put('/movies/2')
       .send({ genre: 'dark comedy action drama' });
@@ -65,7 +65,7 @@ describe('movie routes', () => {
     expect(resp.body.genre).toEqual('dark comedy action drama');
   });
 
-  it('DELETE /movies/:id should delete a movie', async () => {
+  it.skip('DELETE /movies/:id should delete a movie', async () => {
     const resp = await request(app).delete('/movies/1');
     expect(resp.status).toEqual(200);
     expect(resp.body.id).toEqual('1');
