@@ -37,6 +37,14 @@ describe('movie routes', () => {
     expect(resp.body.id).not.toBeUndefined();
   });
 
+  it('PUT /turtles/:id should update turtle', async () => {
+    const resp = await request(app)
+      .put('/turtles/3')
+      .send({ weapon: 'grappling hook' });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.weapon).toEqual('grappling hook');
+  });
+
   afterAll(() => {
     pool.end();
   });
