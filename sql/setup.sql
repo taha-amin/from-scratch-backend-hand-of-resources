@@ -2,6 +2,7 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 DROP TABLE if exists movies;
 DROP TABLE if exists athletes;
+DROP TABLE if exists games;
 
 CREATE TABLE movies (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -25,4 +26,16 @@ CREATE TABLE athletes (
 INSERT INTO athletes (name, team, sport) VALUES
 ('Ricky Lightfoot', 'Wales', 'man vs horse racing'),
 ('Chrissy Quaid', 'USA', 'extreme ironing'),
-('Morgan Johnson', 'USA', 'chess boxing')
+('Morgan Johnson', 'USA', 'chess boxing');
+
+CREATE TABLE games (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    players INT NOT NULL,
+    genre VARCHAR NOT NULL
+);
+
+INSERT INTO games (name, players, genre) VALUES
+('tic tac toe', 2, 'paper and pencil'),
+('connect four', 2, 'board game'),
+('battleship', 2, 'board game')
