@@ -24,6 +24,19 @@ describe('city routes', () => {
     });
   });
 
+  it('POST /cities should create a new city', async () => {
+    const resp = await request(app).post('/cities').send({
+      name: 'Anchorage',
+      population: 292090,
+      motto: 'big wild life',
+    });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.name).toEqual('Anchorage');
+    expect(resp.body.population).toEqual(292090);
+    expect(resp.body.motto).toEqual('big wild life');
+    expect(resp.body.id).not.toBeUndefined();
+  });
+
   afterAll(() => {
     pool.end();
   });
