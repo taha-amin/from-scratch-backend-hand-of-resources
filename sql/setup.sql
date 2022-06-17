@@ -45,7 +45,7 @@ CREATE TABLE turtles (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR NOT NULL,
     color VARCHAR NOT NULL,
-    weapon VARCHAR NOT NULL,
+    weapon VARCHAR NOT NULL
 );
 
 INSERT INTO turtles (name, color, weapon) VALUES
