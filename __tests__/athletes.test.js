@@ -24,4 +24,17 @@ describe('athlete routes', () => {
       sport: 'man vs horse racing',
     });
   });
+
+  it('POST /athletes should create a new athlete', async () => {
+    const resp = await request(app).post('/athletes').send({
+      name: 'Lebron James',
+      team: 'Lakers',
+      sport: 'basketball',
+    });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.name).toEqual('Lebron James');
+    expect(resp.body.team).toEqual('Lakers');
+    expect(resp.body.sport).toEqual('basketball');
+    expect(resp.body.id).not.toBeUndefined();
+  });
 });
