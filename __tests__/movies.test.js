@@ -65,6 +65,15 @@ describe('movie routes', () => {
     expect(resp.body.genre).toEqual('dark comedy action drama');
   });
 
+  it('DELETE /movies/:id should delete a movie', async () => {
+    const resp = await request(app).delete('/movies/1');
+    expect(resp.status).toEqual(200);
+    expect(resp.body.id).toEqual('1');
+
+    const { body } = await request(app).get('/movies/');
+    expect(body.length).toBeLessThan(3);
+  });
+
   afterAll(() => {
     pool.end();
   });
