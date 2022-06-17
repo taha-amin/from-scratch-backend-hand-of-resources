@@ -24,6 +24,19 @@ describe('movie routes', () => {
     });
   });
 
+  it('POST /turtles should create a new turtle', async () => {
+    const resp = await request(app).post('/turtles').send({
+      name: 'Venus de Milo',
+      color: 'black',
+      weapon: 'Tessen',
+    });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.name).toEqual('Venus de Milo');
+    expect(resp.body.color).toEqual('black');
+    expect(resp.body.weapon).toEqual('Tessen');
+    expect(resp.body.id).not.toBeUndefined();
+  });
+
   afterAll(() => {
     pool.end();
   });
