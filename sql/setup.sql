@@ -21,3 +21,8 @@ CREATE TABLE athletes (
     team VARCHAR NOT NULL,
     sport VARCHAR NOT NULL
 );
+
+INSERT INTO athletes (name, team, sport) VALUES
+('Ricky Lightfoot', 'Wales', 'man vs horse racing'),
+('Chrissy Quaid', 'USA', 'extreme ironing'),
+('Morgan Johnson', 'USA', 'chess boxing')
