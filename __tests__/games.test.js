@@ -8,13 +8,13 @@ describe('game routes', () => {
     return setup(pool);
   });
 
-  it('/games should return a list of games', async () => {
+  it.skip('/games should return a list of games', async () => {
     const resp = await request(app).get('/games');
     expect(resp.status).toEqual(200);
     expect(resp.body.length).toEqual(3);
   });
 
-  it('/games/:id should return the game detail', async () => {
+  it.skip('/games/:id should return the game detail', async () => {
     const resp = await request(app).get('/games/1');
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual({
@@ -25,7 +25,7 @@ describe('game routes', () => {
     });
   });
 
-  it('POST /games should create a new game', async () => {
+  it.skip('POST /games should create a new game', async () => {
     const resp = await request(app).post('/games').send({
       name: 'dots and boxes',
       players: 2,
@@ -38,7 +38,7 @@ describe('game routes', () => {
     expect(resp.body.id).not.toBeUndefined();
   });
 
-  it('PUT /games/:id should update game', async () => {
+  it.skip('PUT /games/:id should update game', async () => {
     const resp = await request(app)
       .put('/games/1')
       .send({ genre: 'tic-tac-toe' });
@@ -46,7 +46,7 @@ describe('game routes', () => {
     expect(resp.body.genre).toEqual('tic-tac-toe');
   });
 
-  it('DELETE /games/:id should delete a game', async () => {
+  it.skip('DELETE /games/:id should delete a game', async () => {
     const resp = await request(app).delete('/games/1');
     expect(resp.status).toEqual(200);
     expect(resp.body.id).toEqual('1');

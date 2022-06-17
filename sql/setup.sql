@@ -3,6 +3,7 @@
 DROP TABLE if exists movies;
 DROP TABLE if exists athletes;
 DROP TABLE if exists games;
+DROP TABLE if exists turtles;
 
 CREATE TABLE movies (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -38,4 +39,17 @@ CREATE TABLE games (
 INSERT INTO games (name, players, genre) VALUES
 ('tic tac toe', 2, 'paper and pencil'),
 ('connect four', 2, 'board game'),
-('battleship', 2, 'board game')
+('battleship', 2, 'board game');
+
+CREATE TABLE turtles (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    color VARCHAR NOT NULL,
+    weapon VARCHAR NOT NULL,
+);
+
+INSERT INTO turtles (name, color, weapon) VALUES
+('Leonardo', 'blue', 'two katanas'),
+('Donatello', 'purple', 'staff'),
+('Michelangelo', 'orange', 'two nunchaks'),
+('Raphael', 'red', 'two sais');
