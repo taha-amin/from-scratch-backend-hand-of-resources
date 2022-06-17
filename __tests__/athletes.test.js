@@ -45,4 +45,13 @@ describe('athlete routes', () => {
     expect(resp.status).toEqual(200);
     expect(resp.body.team).toEqual('united states of america');
   });
+
+  it('DELETE /athletes/:id should delete an athlete', async () => {
+    const resp = await request(app).delete('/athletes/1');
+    expect(resp.status).toEqual(200);
+    expect(resp.body.id).toEqual('1');
+
+    const { body } = await request(app).get('/athletes/');
+    expect(body.length).toBeLessThan(3);
+  });
 });
