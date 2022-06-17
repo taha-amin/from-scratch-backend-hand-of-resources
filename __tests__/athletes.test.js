@@ -8,13 +8,13 @@ describe('athlete routes', () => {
     return setup(pool);
   });
 
-  it('/athletes should return a list of athletes', async () => {
+  it.skip('/athletes should return a list of athletes', async () => {
     const resp = await request(app).get('/athletes');
     expect(resp.status).toEqual(200);
     expect(resp.body.length).toEqual(3);
   });
 
-  it('/athletes/:id should return the athlete detail', async () => {
+  it.skip('/athletes/:id should return the athlete detail', async () => {
     const resp = await request(app).get('/athletes/1');
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual({
@@ -25,7 +25,7 @@ describe('athlete routes', () => {
     });
   });
 
-  it('POST /athletes should create a new athlete', async () => {
+  it.skip('POST /athletes should create a new athlete', async () => {
     const resp = await request(app).post('/athletes').send({
       name: 'Lebron James',
       team: 'Lakers',
@@ -38,7 +38,7 @@ describe('athlete routes', () => {
     expect(resp.body.id).not.toBeUndefined();
   });
 
-  it('PUT /athletes/:id should update athlete', async () => {
+  it.skip('PUT /athletes/:id should update athlete', async () => {
     const resp = await request(app)
       .put('/athletes/2')
       .send({ team: 'united states of america' });
@@ -46,7 +46,7 @@ describe('athlete routes', () => {
     expect(resp.body.team).toEqual('united states of america');
   });
 
-  it('DELETE /athletes/:id should delete an athlete', async () => {
+  it.skip('DELETE /athletes/:id should delete an athlete', async () => {
     const resp = await request(app).delete('/athletes/1');
     expect(resp.status).toEqual(200);
     expect(resp.body.id).toEqual('1');
