@@ -37,6 +37,14 @@ describe('city routes', () => {
     expect(resp.body.id).not.toBeUndefined();
   });
 
+  it('PUT /cities/:id should update city', async () => {
+    const resp = await request(app)
+      .put('/cities/2')
+      .send({ motto: 'the city that works' });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.motto).toEqual('the city that works');
+  });
+
   afterAll(() => {
     pool.end();
   });
