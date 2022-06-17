@@ -37,4 +37,12 @@ describe('athlete routes', () => {
     expect(resp.body.sport).toEqual('basketball');
     expect(resp.body.id).not.toBeUndefined();
   });
+
+  it('PUT /athletes/:id should update athlete', async () => {
+    const resp = await request(app)
+      .put('/athletes/2')
+      .send({ team: 'united states of america' });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.team).toEqual('united states of america');
+  });
 });
