@@ -24,4 +24,17 @@ describe('game routes', () => {
       genre: 'paper and pencil',
     });
   });
+
+  it('POST /games should create a new game', async () => {
+    const resp = await request(app).post('/games').send({
+      name: 'dots and boxes',
+      players: 2,
+      genre: 'paper and pencil',
+    });
+    expect(resp.status).toEqual(200);
+    expect(resp.body.name).toEqual('dots and boxes');
+    expect(resp.body.players).toEqual(2);
+    expect(resp.body.genre).toEqual('paper and pencil');
+    expect(resp.body.id).not.toBeUndefined();
+  });
 });
