@@ -13,6 +13,17 @@ describe('city routes', () => {
     expect(resp.status).toEqual(200);
   });
 
+  it('/cities/:id should return the city detail', async () => {
+    const resp = await request(app).get('/cities/1');
+    expect(resp.status).toEqual(200);
+    expect(resp.body).toEqual({
+      id: '1',
+      name: 'Portland',
+      population: 650380,
+      motto: 'keep portland weird',
+    });
+  });
+
   afterAll(() => {
     pool.end();
   });

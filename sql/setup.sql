@@ -58,7 +58,7 @@ INSERT INTO turtles (name, color, weapon) VALUES
 CREATE TABLE cities (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR NOT NULL,
-    population BIGINT NOT NULL,
+    population INT NOT NULL,
     motto VARCHAR NOT NULL
 );
 
