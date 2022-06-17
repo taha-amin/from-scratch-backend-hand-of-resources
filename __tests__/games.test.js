@@ -45,4 +45,17 @@ describe('game routes', () => {
     expect(resp.status).toEqual(200);
     expect(resp.body.genre).toEqual('tic-tac-toe');
   });
+
+  it('DELETE /games/:id should delete a game', async () => {
+    const resp = await request(app).delete('/games/1');
+    expect(resp.status).toEqual(200);
+    expect(resp.body.id).toEqual('1');
+
+    const { body } = await request(app).get('/games/');
+    expect(body.length).toBeLessThan(3);
+  });
+
+  afterAll(() => {
+    pool.end();
+  });
 });
