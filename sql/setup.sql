@@ -4,6 +4,7 @@ DROP TABLE if exists movies;
 DROP TABLE if exists athletes;
 DROP TABLE if exists games;
 DROP TABLE if exists turtles;
+DROP TABLE if exists cities;
 
 CREATE TABLE movies (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -53,3 +54,14 @@ INSERT INTO turtles (name, color, weapon) VALUES
 ('Donatello', 'purple', 'staff'),
 ('Michelangelo', 'orange', 'two nunchaks'),
 ('Raphael', 'red', 'two sais');
+
+CREATE TABLE cities (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    population BIGINT NOT NULL,
+    motto VARCHAR NOT NULL
+);
+
+INSERT INTO cities (population, motto) VALUES
+('Portland', 650380, 'keep portland weird'),
+('New York', 8000000, 'excelsior'),
+('Seattle', 741251, 'city of goodwill');
