@@ -45,6 +45,15 @@ describe('city routes', () => {
     expect(resp.body.motto).toEqual('the city that works');
   });
 
+  it('DELETE /cities/:id should delete a city', async () => {
+    const resp = await request(app).delete('/cities/3');
+    expect(resp.status).toEqual(200);
+    expect(resp.body.id).toEqual('3');
+
+    const { body } = await request(app).get('/cities/');
+    expect(body.length).toBeLessThan(3);
+  });
+
   afterAll(() => {
     pool.end();
   });
